@@ -1,5 +1,10 @@
 import "./App.css";
 
+import React from "react";
+import './components/Home.css'
+import Home from "./components/Home";
+import {useState} from "react";
+
 const productList = [
   {
     id: 1,
@@ -109,7 +114,41 @@ const productList = [
   },
 ];
 function App() {
-  return <div className="App"></div>;
+
+  const [search, setNewSearch] = useState("");
+  const handleSearchChange = (e) => {
+    setNewSearch(e.target.value);
+  };
+
+  const filtered = !search
+      ? productList
+      : productList.filter((item) =>
+          item.title.toLowerCase().includes(search.toLowerCase())
+      );
+
+  return (
+      <div>
+        <h2>Product list</h2>
+        Filter productList:{" "}
+        <input type="text" value={search} onChange={handleSearchChange} />
+
+        {filtered.map((item) => {
+          return (
+
+
+              <Home
+                  title={item.title}
+                  price={item.price}
+                  image={item.image}
+                  key={item.id}
+              />
+          );
+        })}
+
+
+      </div>
+  )
 }
 
 export default App;
+

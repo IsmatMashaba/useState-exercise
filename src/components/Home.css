@@ -1,0 +1,20 @@
+img {
+    height: 80px;
+    width: 80px;
+    margin-top: 32px;
+}
+.product-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+
+}
+.product {
+    border: 1px solid black;
+    height: 200px;
+    width: 350px;
+    margin-left:120px;
+    padding-left: 50px;
+    margin-bottom: 100px;
+    margin-top: 20px;
+}
